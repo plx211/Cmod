@@ -13,3 +13,7 @@ public void OnPluginStart() {
 public void OnPluginEnd() {
   module.remove();
 }
+
+void onLevelChange(ExpID expID, int oldLevel, int newLevel) {
+  
+}
