@@ -88,3 +88,33 @@ void Exp_check(ExpID expID) {
     onLevelChange(expID, level, nextLevel);
   }
 }
+
+ExpID Exp_getFreeSlot() {
+  ExpID expID = data.FindValue(SlotStatus_Free, ExpArrayPosition_SlotStatus);
+
+  if (expID == ExpID_Invalid) {
+    expID = data.Push(SlotStatus_Free);
+  }
+
+  return expID;
+}
+
+ExpID Exp_create(int maxLevel, int ratio) {
+  ExpID expID = Exp_getFreeSlot();
+
+  Exp_setSlotStatus(expID, SlotStatus_Use);
+  Exp_setLevel(expID, 1);
+  Exp_setExp(expID, 0);
+  Exp_setMaxLevel(expID, maxLevel);
+  Exp_setRatio(expID, ratio);
+
+  return expID;
+}
+
+ExpID Exp_remove(ExpID expID) {
+  Exp_setSlotStatus(expID, SlotStatus_Free);
+}
+
+int Exp_getSlotCount() {
+  return data.Length;
+}
