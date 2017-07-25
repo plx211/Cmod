@@ -78,10 +78,6 @@ void Exp_check(ExpID expID) {
     ++nextLevel;
   }
 
-  while (Exp_getExp(expID) < Exp_getExpForLevelUp(nextLevel - 1)) {
-    --nextLevel;
-  }
-
   Exp_setLevel(expID, nextLevel);
 
   if (level != nextLevel) {
