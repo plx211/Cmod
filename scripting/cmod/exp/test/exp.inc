@@ -6,6 +6,7 @@ void ExpTest_init() {
   RegServerCmd("test_cmod_expcore_set_max_level", ExpTestCmd_setMaxLevel);
   RegServerCmd("test_cmod_expcore_set_ratio", ExpTestCmd_setRatio);
   RegServerCmd("test_cmod_expcore_check", ExpTestCmd_check);
+  RegServerCmd("test_cmod_expcore_remove", ExpTestCmd_remove);
 }
 
 public Action ExpTestCmd_print(int argc) {
@@ -13,6 +14,7 @@ public Action ExpTestCmd_print(int argc) {
   PrintToServer("Slot count = %d", count);
   for (ExpID expID = ExpID_First; expID < view_as<ExpID>(count); ++expID) {
     PrintToServer("---------------------");
+    PrintToServer("Slot status: %d", Exp_getSlotStatus(expID));
     PrintToServer("Level: %d", Exp_getLevel(expID));
     PrintToServer("Exp: %d", Exp_getExp(expID));
     PrintToServer("Max level: %d", Exp_getMaxLevel(expID));
@@ -66,4 +68,11 @@ public Action ExpTestCmd_check(int argc) {
   GetCmdArg(1, buffer, sizeof(buffer));
   ExpID expID = view_as<ExpID>(StringToInt(buffer));
   Exp_check(expID);
+}
+
+public Action ExpTestCmd_remove(int argc) {
+  char buffer[32];
+  GetCmdArg(1, buffer, sizeof(buffer));
+  ExpID expID = view_as<ExpID>(StringToInt(buffer));
+  Exp_remove(expID);
 }
