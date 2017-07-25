@@ -6,7 +6,7 @@ enum CmodExpID {
 typedef CmodLevelChangeCB = function void (CmodExpID expID, int oldLevel, int newLevel);
 
 
-methodmap CmodExpID {
+methodmap CmodExpID __nullable__ {
   public native CmodExpID(int maxLevel, int ratio);
 
   public native void remove();
