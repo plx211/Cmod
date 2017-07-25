@@ -20,47 +20,47 @@ enum ExpID {
 static ArrayList data;
 
 void Exp_init() {
-  data = new ArrayList(ExpArrayPosition_Count);
+  data = new ArrayList(view_as<int>(ExpArrayPosition_Count));
 }
 
 void Exp_setSlotStatus(ExpID expID, SlotStatus status) {
-  data.Set(expID, status, ExpArrayPosition_SlotStatus);
+  data.Set(view_as<int>(expID), status, view_as<int>(ExpArrayPosition_SlotStatus));
 }
 
 SlotStatus Exp_getSlotStatus(ExpID expID) {
-  return data.Get(expID, ExpArrayPosition_SlotStatus);
+  return data.Get(view_as<int>(expID), view_as<int>(ExpArrayPosition_SlotStatus));
 }
 
 void Exp_setRatio(ExpID expID, int ratio) {
-  data.Set(expID, ratio, ExpArrayPosition_Ratio);
+  data.Set(view_as<int>(expID), ratio, view_as<int>(ExpArrayPosition_Ratio));
 }
 
 int Exp_getRatio(ExpID expID) {
-  return data.Get(expID, ExpArrayPosition_Ratio);
+  return data.Get(view_as<int>(expID), view_as<int>(ExpArrayPosition_Ratio));
 }
 
 void Exp_setMaxLevel(ExpID expID, int maxLevel) {
-  data.Set(expID, maxLevel, ExpArrayPosition_MaxLevel);
+  data.Set(view_as<int>(expID), maxLevel, view_as<int>(ExpArrayPosition_MaxLevel));
 }
 
 int Exp_getMaxLevel(ExpID expID) {
-  return data.Get(expID, ExpArrayPosition_MaxLevel);
+  return data.Get(view_as<int>(expID), view_as<int>(ExpArrayPosition_MaxLevel));
 }
 
 void Exp_setLevel(ExpID expID, int level) {
-  data.Set(expID, level, ExpArrayPosition_Level);
+  data.Set(view_as<int>(expID), level, view_as<int>(ExpArrayPosition_Level));
 }
 
 int Exp_getLevel(ExpID expID) {
-  return data.Get(expID, ExpArrayPosition_Level);
+  return data.Get(view_as<int>(expID), view_as<int>(ExpArrayPosition_Level));
 }
 
 void Exp_setExp(ExpID expID, int exp) {
-  data.Set(expID, exp, ExpArrayPosition_Exp);
+  data.Set(view_as<int>(expID), exp, view_as<int>(ExpArrayPosition_Exp));
 }
 
 int Exp_getExp(ExpID expID) {
-  return data.Get(expID, ExpArrayPosition_Exp);
+  return data.Get(view_as<int>(expID), view_as<int>(ExpArrayPosition_Exp));
 }
 
 int Exp_getExpForLevelUp(ExpID expID) {
@@ -84,10 +84,10 @@ void Exp_check(ExpID expID) {
 }
 
 ExpID Exp_getFreeSlot() {
-  ExpID expID = data.FindValue(SlotStatus_Free, ExpArrayPosition_SlotStatus);
+  ExpID expID = view_as<ExpID>(data.FindValue(SlotStatus_Free, view_as<int>(ExpArrayPosition_SlotStatus)));
 
   if (expID == ExpID_Invalid) {
-    expID = data.Push(SlotStatus_Free);
+    expID = view_as<ExpID>(data.Push(SlotStatus_Free));
   }
 
   return expID;
