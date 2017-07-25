@@ -33,6 +33,14 @@ public void OnPluginEnd() {
   module.remove();
 }
 
+public void onExpIDCreate(ExpID expID) {
+  Forward_onExpIDCreate(expID);
+}
+
+public void onExpIDRemove(ExpID expID) {
+  Forward_onExpIDRemove(expID);
+}
+
 public void onLevelChange(ExpID expID, int oldLevel, int newLevel) {
   Forward_onLevelChange(expID, oldLevel, newLevel);
 }

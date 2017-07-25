@@ -75,10 +75,8 @@ void Exp_check(ExpID expID) {
   int maxLevel = Exp_getMaxLevel(expID);
 
   while (Exp_getExp(expID) > Exp_getExpForLevelUp(expID) && nextLevel < maxLevel) {
-    ++nextLevel;
+    Exp_setLevel(expID, ++nextLevel);
   }
-
-  Exp_setLevel(expID, nextLevel);
 
   if (level != nextLevel) {
     onLevelChange(expID, level, nextLevel);
@@ -104,11 +102,14 @@ ExpID Exp_create(int maxLevel, int ratio) {
   Exp_setMaxLevel(expID, maxLevel);
   Exp_setRatio(expID, ratio);
 
+  onExpIDCreate(expID);
+
   return expID;
 }
 
-ExpID Exp_remove(ExpID expID) {
+void Exp_remove(ExpID expID) {
   Exp_setSlotStatus(expID, SlotStatus_Free);
+  onExpIDRemove(expID);
 }
 
 int Exp_getSlotCount() {
