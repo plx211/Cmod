@@ -70,7 +70,7 @@ int Exp_getExpForLevelUp(ExpID expID) {
 }
 
 void Exp_check(ExpID expID) {
-  int level = Exp_getlevel(expID);
+  int level = Exp_getLevel(expID);
   int nextLevel = level;
   int maxLevel = Exp_getMaxLevel(expID);
 
@@ -78,7 +78,7 @@ void Exp_check(ExpID expID) {
     ++nextLevel;
   }
 
-  while (Exp_getExp(expID) < Exp_getExpForLevelUp(nextLvl - 1)) {
+  while (Exp_getExp(expID) < Exp_getExpForLevelUp(nextLevel - 1)) {
     --nextLevel;
   }
 
