@@ -11,6 +11,9 @@
 #include "cmod/exp/forward/level_change"
 #include "cmod/exp/forward"
 
+#include "cmod/exp/native/exp"
+#include "cmod/exp/native/forward"
+
 #if defined TEST
   #include "cmod/exp/test/exp"
 #endif
@@ -31,6 +34,12 @@ public void OnPluginStart() {
 
 public void OnPluginEnd() {
   module.remove();
+}
+
+public APLRes AskPluginLoad2(Handle myself, bool late, char[] error, int err_max) {
+  ExpNative_init();
+  ForwardNative_init();
+  return APLRes_Success;
 }
 
 public void onExpIDCreate(ExpID expID) {
