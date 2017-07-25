@@ -21,7 +21,7 @@
 static CmodModuleID module;
 
 public void OnPluginStart() {
-  module = new CmodModuleID("exp_core");
+  module = new CmodModuleID("expcore");
   module.setReady();
 
   Exp_init();
