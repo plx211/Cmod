@@ -9,19 +9,19 @@ ArrayList SlotManager_getSlotArray() {
 }
 
 SlotID SlotManager_getFreeSlotID() {
-  SlotID slotID = slotArray.FindValue(SlotStatus_Free);
+  SlotID slotID = view_as<SlotID>(slotArray.FindValue(SlotStatus_Free));
   if (slotID == SlotID_Invalid) {
-    slotID = slotArray.Push(SlotStatus_Free);
+    slotID = view_as<SlotID>(slotArray.Push(SlotStatus_Free));
   }
   return slotID;
 }
 
 void SlotManager_setSlotStatus(SlotID slotID, SlotStatus status) {
-  slotsArray.Set(slotID, status);
+  slotArray.Set(view_as<int>(slotID), status);
 }
 
 SlotStatus SlotManager_getSlotStatus(SlotID slotID) {
-  return slotsArray.Get(slotID);
+  return slotArray.Get(view_as<int>(slotID));
 }
 
 SlotID SlotManager_createSlot() {

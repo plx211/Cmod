@@ -12,17 +12,17 @@ SlotID SlotName_find(const char[] name) {
 
 void SlotName_set(SlotID slotID, const char[] name) {
   int length = nameArray.Length;
-  if (slotID > length) {
-    nameArray.Resize(slotID + 1);
-    for (int i = length; i <= slotID; ++i) {
+  if (view_as<int>(slotID) >= length) {
+    nameArray.Resize(view_as<int>(slotID) + 1);
+    for (int i = length; i <= view_as<int>(slotID); ++i) {
       nameArray.SetString(i, "");
     }
   }
-  nameArray.SetString(slotID, name);
+  nameArray.SetString(view_as<int>(slotID), name);
 }
 
 void SlotName_get(SlotID slotID, char[] buffer, int length) {
-  nameArray.GetString(slotID, buffer, length);
+  nameArray.GetString(view_as<int>(slotID), buffer, length);
 }
 
 SlotID SlotName_createSlot(const char[] name) {

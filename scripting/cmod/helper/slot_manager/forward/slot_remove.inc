@@ -6,6 +6,6 @@ methodmap ForwardSlotRemove < HelperForward {
   public void call(SlotID slotID) {
     Call_StartForward(this);
     Call_PushCell(slotID);
-    Call_StartForward();
+    Call_Finish();
   }
 };
