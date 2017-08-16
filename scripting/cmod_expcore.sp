@@ -6,6 +6,9 @@
 
 #include "cmod/helper/forward"
 #include "cmod/helper/forward_array"
+#include "cmod/helper/slot_manager/slot_id"
+#include "cmod/helper/slot_manager/slot_status"
+#include "cmod/helper/slot_manager/slot_manager"
 
 #include "cmod/exp/exp"
 #include "cmod/exp/forward/level_change"
@@ -24,6 +27,7 @@ public void OnPluginStart() {
   module = new CmodModuleID("expcore");
   module.setReady();
 
+  SlotManager_init();
   Exp_init();
   Forward_init();
 
@@ -42,14 +46,14 @@ public APLRes AskPluginLoad2(Handle myself, bool late, char[] error, int err_max
   return APLRes_Success;
 }
 
-public void onExpIDCreate(ExpID expID) {
-  Forward_onExpIDCreate(expID);
+public void onExpIDCreate(SlotID slotID) {
+  Forward_onExpIDCreate(slotID);
 }
 
-public void onExpIDRemove(ExpID expID) {
-  Forward_onExpIDRemove(expID);
+public void onExpIDRemove(SlotID slotID) {
+  Forward_onExpIDRemove(slotID);
 }
 
-public void onLevelChange(ExpID expID, int oldLevel, int newLevel) {
-  Forward_onLevelChange(expID, oldLevel, newLevel);
+public void onLevelChange(SlotID slotID, int oldLevel, int newLevel) {
+  Forward_onLevelChange(slotID, oldLevel, newLevel);
 }

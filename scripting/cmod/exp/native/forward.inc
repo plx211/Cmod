@@ -11,13 +11,13 @@ void ForwardNative_init() {
 }
 
 public int Forward_hookLevelChange(Handle plugin, int numParams) {
-  ExpID expID = GetNativeCell(1);
+  SlotID slotID = GetNativeCell(1);
   Function cb = GetNativeCell(2);
-  Forward_getLevelChangeForward(expID).hook(plugin, cb);
+  Forward_getLevelChangeForward(slotID).hook(plugin, cb);
 }
 
 public int Forward_unhookLevelChange(Handle plugin, int numParams) {
-  ExpID expID = GetNativeCell(1);
+  SlotID slotID = GetNativeCell(1);
   Function cb = GetNativeCell(2);
-  Forward_getLevelChangeForward(expID).unhook(plugin, cb);
+  Forward_getLevelChangeForward(slotID).unhook(plugin, cb);
 }
