@@ -24,14 +24,3 @@ void SlotName_set(SlotID slotID, const char[] name) {
 void SlotName_get(SlotID slotID, char[] buffer, int length) {
   nameArray.GetString(view_as<int>(slotID), buffer, length);
 }
-
-SlotID SlotName_createSlot(const char[] name) {
-  if (SlotName_find(name) != SlotID_Invalid) {
-    return SlotID_Invalid;
-  }
-
-  SlotID slotID = SlotManager_createSlot();
-  SlotName_set(slotID, name);
-
-  return slotID;
-}

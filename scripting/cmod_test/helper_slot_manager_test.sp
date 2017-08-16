@@ -36,14 +36,22 @@ public Action SlotManagerTestCmd_remove(int args) {
 }
 
 SlotID SlotManagerTest_createSlot(const char[] name) {
-  SlotID slotID = SlotName_createSlot(name);
+  if (SlotName_find(name) != SlotID_Invalid) {
+    return SlotID_Invalid;
+  }
+
+  SlotID slotID = SlotManager_createSlot();
+  SlotName_set(slotID, name);
+
   if (slotID != SlotID_Invalid) {
     SlotManagerForward_getCreate().call(slotID);
   }
+
   return slotID;
 }
 
 void SlotManagerTest_removeSlot(SlotID slotID) {
+  SlotName_set(slotID, "");
   SlotManager_removeSlot(slotID);
   SlotManagerForward_getRemove().call(slotID);
 }
