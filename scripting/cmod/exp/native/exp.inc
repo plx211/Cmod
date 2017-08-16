@@ -77,55 +77,55 @@ public int ExpNative_create(Handle plugin, int numParams) {
 }
 
 public int ExpNative_remove(Handle plugin, int numParams) {
-  ExpID expID = GetNativeCell(1);
-  Exp_remove(expID);
+  SlotID slotID = GetNativeCell(1);
+  Exp_remove(slotID);
 }
 
 public int ExpNative_setExp(Handle plugin, int numParams) {
-  ExpID expID = GetNativeCell(1);
+  SlotID slotID = GetNativeCell(1);
   int value = GetNativeCell(2);
-  Exp_setExp(expID, value);
+  Exp_setExp(slotID, value);
 }
 
 public int ExpNative_getExp(Handle plugin, int numParams) {
-  ExpID expID = GetNativeCell(1);
-  return Exp_getExp(expID);
+  SlotID slotID = GetNativeCell(1);
+  return Exp_getExp(slotID);
 }
 
 public int ExpNative_setLevel(Handle plugin, int numParams) {
-  ExpID expID = GetNativeCell(1);
+  SlotID slotID = GetNativeCell(1);
   int value = GetNativeCell(2);
-  Exp_setLevel(expID, value);
+  Exp_setLevel(slotID, value);
 }
 
 public int ExpNative_getLevel(Handle plugin, int numParams) {
-  ExpID expID = GetNativeCell(1);
-  return Exp_getLevel(expID);
+  SlotID slotID = GetNativeCell(1);
+  return Exp_getLevel(slotID);
 }
 
 public int ExpNative_setMaxLevel(Handle plugin, int numParams) {
-  ExpID expID = GetNativeCell(1);
+  SlotID slotID = GetNativeCell(1);
   int value = GetNativeCell(2);
-  Exp_setMaxLevel(expID, value);
+  Exp_setMaxLevel(slotID, value);
 }
 
 public int ExpNative_getMaxLevel(Handle plugin, int numParams) {
-  ExpID expID = GetNativeCell(1);
-  return Exp_getMaxLevel(expID);
+  SlotID slotID = GetNativeCell(1);
+  return Exp_getMaxLevel(slotID);
 }
 
 public int ExpNative_setRatio(Handle plugin, int numParams) {
-  ExpID expID = GetNativeCell(1);
+  SlotID slotID = GetNativeCell(1);
   int value = GetNativeCell(2);
-  Exp_setRatio(expID, value);
+  Exp_setRatio(slotID, value);
 }
 
 public int ExpNative_getRatio(Handle plugin, int numParams) {
-  ExpID expID = GetNativeCell(1);
-  return Exp_getRatio(expID);
+  SlotID slotID = GetNativeCell(1);
+  return Exp_getRatio(slotID);
 }
 
 public int ExpNative_check(Handle plugin, int numParams) {
-  ExpID expID = GetNativeCell(1);
-  Exp_check(expID);
+  SlotID slotID = GetNativeCell(1);
+  Exp_check(slotID);
 }

@@ -4,18 +4,18 @@ void Forward_init() {
   levelChange = new HelperForwardArray();
 }
 
-ForwardLevelChange Forward_getLevelChangeForward(ExpID expID) {
-  return view_as<ForwardLevelChange>(levelChange.get(view_as<int>(expID)));
+ForwardLevelChange Forward_getLevelChangeForward(SlotID slotID) {
+  return view_as<ForwardLevelChange>(levelChange.get(view_as<int>(slotID)));
 }
 
-void Forward_onExpIDCreate(ExpID expID) {
-  levelChange.set(view_as<int>(expID), new ForwardLevelChange());
+void Forward_onExpIDCreate(SlotID slotID) {
+  levelChange.set(view_as<int>(slotID), new ForwardLevelChange());
 }
 
-void Forward_onExpIDRemove(ExpID expID) {
-  Forward_getLevelChangeForward(expID).remove();
+void Forward_onExpIDRemove(SlotID slotID) {
+  Forward_getLevelChangeForward(slotID).remove();
 }
 
-void Forward_onLevelChange(ExpID expID, int oldLevel, int newLevel) {
-  Forward_getLevelChangeForward(expID).call(expID, oldLevel, newLevel);
+void Forward_onLevelChange(SlotID slotID, int oldLevel, int newLevel) {
+  Forward_getLevelChangeForward(slotID).call(slotID, oldLevel, newLevel);
 }
