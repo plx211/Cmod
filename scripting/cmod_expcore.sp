@@ -1,5 +1,4 @@
 #include <sourcemod>
-#include <cmod>
 
 #tryinclude "cmod/version"
 #tryinclude "cmod/test"
@@ -21,12 +20,7 @@
   #include "cmod/exp/test/exp"
 #endif
 
-static CmodModuleID module;
-
 public void OnPluginStart() {
-  module = new CmodModuleID("expcore");
-  module.setReady();
-
   SlotManager_init();
   Exp_init();
   Forward_init();
@@ -36,11 +30,8 @@ public void OnPluginStart() {
   #endif
 }
 
-public void OnPluginEnd() {
-  module.remove();
-}
-
 public APLRes AskPluginLoad2(Handle myself, bool late, char[] error, int err_max) {
+  RegPluginLibrary("cmod_expcore");
   ExpNative_init();
   ForwardNative_init();
   return APLRes_Success;
