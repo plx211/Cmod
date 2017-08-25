@@ -1,6 +1,5 @@
 static ConVar cvarRatio;
 static ConVar cvarMaxLevel;
-static ConVar cvarZero;
 
 void Config_init() {
   cvarRatio = CreateConVar("cmod_clientexp_ratio", "35", "Exp to next level is calculate by level^2 * ratio");

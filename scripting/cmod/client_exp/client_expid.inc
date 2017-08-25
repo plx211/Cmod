@@ -5,7 +5,7 @@ void ClientExpID_init() {
   int maxLevel = Config_getMaxLevel();
 
   for (int i = 0; i < MAXPLAYERS; ++i) {
-    clientExpID = new CmodExpID(ratio, maxLevel);
+    clientExpID[i] = new CmodExpID(ratio, maxLevel);
   }
 }
 
