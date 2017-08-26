@@ -4,6 +4,8 @@
 #tryinclude "cmod/version"
 #tryinclude "cmod/test"
 
+#include "cmod/requirements/cmod_expcore"
+
 #include "cmod/client_exp/config"
 #include "cmod/client_exp/client_expid"
 #include "cmod/client_exp/native/client_expid"
