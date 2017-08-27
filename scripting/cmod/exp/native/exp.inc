@@ -68,6 +68,9 @@ void ExpNative_init() {
   CreateNative("Cmod_CheckExp", ExpNative_check);
   CreateNative("CmodExpID.check", ExpNative_check);
   CreateNative("CmodExpID.Check", ExpNative_check);
+
+  CreateNative("Cmod_getExpForLevelUp", ExpNative_getExpForLevelUp);
+  CreateNative("Cmod_GetExpForLevelUp", ExpNative_getExpForLevelUp);
 }
 
 public int ExpNative_create(Handle plugin, int numParams) {
@@ -128,4 +131,9 @@ public int ExpNative_getRatio(Handle plugin, int numParams) {
 public int ExpNative_check(Handle plugin, int numParams) {
   SlotID slotID = GetNativeCell(1);
   Exp_check(slotID);
+}
+
+public int ExpNative_getExpForLevelUp(Handle plugin, int numParams) {
+  SlotID slotID = GetNativeCell(1);
+  return view_as<int>(Exp_getExpForLevelUp(slotID));
 }

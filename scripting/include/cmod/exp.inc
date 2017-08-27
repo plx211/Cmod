@@ -124,3 +124,6 @@ native void Cmod_HookLevelChange(CmodExpID expID, CmodLevelChangeCB cb);
 
 native void Cmod_unhookLevelChange(CmodExpID expID, CmodLevelChangeCB cb);
 native void Cmod_UnhookLevelChange(CmodExpID expID, CmodLevelChangeCB cb);
+
+native int Cmod_getExpForLevelUp(CmodExpID expID);
+native int Cmod_GetExpForLevelUp(CmodExpID expID);
